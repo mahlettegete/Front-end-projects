@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Calculator</title>
+    <style>
+  body{
+    margin:15px;
+      padding: 10px;
+      background-color: #343434;
+     
+     
+      }
+  .taker{
+    background :#FDFDFF;
+      margin:20px auto;
+      padding: 10px;
+      border:solid;
+      border-radius: 15px;
+      box-sizing: border-box;
+      width: 400px;
+      height: 200px;
+      box-shadow: 0 1px 10px rgba(255, 255, 255, 0.3) ;
+        
+      }
+  button{background-color: #42CF84;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 12px;
+      box-shadow: 10px;
+      border: none;
+      width: 150px;
+      height: 50px;
+      }
+  input{
+    color: #000000;
+    width: 100%;
+    
+  }
+  p{
+        font-family:arial;
+        font-weight: bold;
+        margin: 10px;
+        text-align: center;
+        
+      }
+  .selection{
+        border:2px solid;
+        border-radius: 5px;
+     background-color:#EAEAEA ;
+      text-align: center;
+      padding:13px;
+      box-sizing: border-box;
+      width: 200px ;
+      text-align: center;
+      display:inline;
+      }
+     .calculation{
+       text-align: center;
+      
+     } 
+  #operations{
+    background-color:#D92323;
+      border-radius: 10px;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+        height: 50px;
+      }
+  #num1,#num2{
+    background-color: #CBD5D8;
+    padding: 10px;
+    color: #000000;
+    
+  }
+  *{box-sizing: border-box;
+    
+  }
+  .calculator{
+    width: 600px;
+    height: 600px;
+    border: 2px solid #333637black;
+    text-align: center;
+  }
+  .simple{
+    font-size:30px;
+    text-align: center;
+    margin-bottom:50px;
+    margin-right: 50px;
+    color: wheat;
+  }
+    </style>
+  
+</head>
+
+<body>
+  <p class="simple">Simple Calculator </p>
+  <div class="calculator">
+  
+  <div class="taker">
+    <p>
+      Your first number:
+    </p>
+    <input type="number" name="" id="num1" value="" />
+    <p>
+      Your second number:
+    </p>
+    <input type="number" name="" id="num2" value="" />
+  </div>
+  <div class="calculation">
+    <p class="selection">select your operation </p>
+    <select  id="operations">
+      <option value="add">Addition (+)</option>
+      <option value="sub">Substraction(-)</option>
+      <option value="multiply">multiplication 
+      </option>
+      <option value ="divide">Division 
+      </option >
+    </select>
+    <button onclick="calculation()">
+      Calculate</button>
+  </div>
+  </div>
+  
+  
+  
+<script>
+ function calculation(){
+   let num1=
+   Number(document.getElementById("num1").value);
+   let num2=
+  Number(document.getElementById("num2").value);
+
+let op=
+document.getElementById('operations').value;
+let result ;
+if(op==="add"){result=num1 + num2;
+}
+else if(op==="sub"){result=num1-num2;
+   }
+else if(op==="multiply"){result=num1*num2;
+   }
+   else if(op==="divide"){
+     if(num2===0){
+     alert("num2 cannot be zero")
+     return;
+   }
+     result=num1 / num2;
+   }
+alert("the result is:"+result )
+console.log(result);
+}
+</script>
+</body>
+</html>
