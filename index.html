@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Country Info</title>
+  <style>
+    body {
+  background: #222;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.card {
+  background:linear-gradient(-100deg,#333333,#4AA7C2);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 1px 1px 5px  #626E71;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  outline: none;
+  border-radius: 10px;
+  
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.result, .error {
+  margin-top: 15px;
+  display: none;
+}
+
+.flag {
+  width: 100px;
+  margin-bottom: 10px;
+}
+  </style>
+  
+</head>
+
+<body>
+  
+  <div class="card">
+    <div class="search">
+      <input type="text" placeholder="Enter country name">
+      <button>Search</button>
+    </div>
+    
+    <div class="error">
+      <p>Country not found</p>
+    </div>
+    
+    <div class="result">
+      <img class="flag" src="">
+      <h2 class="country">Country Name</h2>
+      <p class="capital">Capital: </p>
+      <p class="population">Population: </p>
+      <p class="region">Continent: </p>
+    
+    </div>
+  </div>
+  
+  <script>
+    const apiUrl="https://restcountries.com/v3.1/name/";
+    
+const searchBox=document.querySelector("input");
+const searchBtn=document.querySelector("button");
+
+
+async function showCountry(country){
+  const response= await fetch(apiUrl + country);
+  if(!response.ok){
+    document.querySelector(".error").style.display="block";
+    document.querySelector(".result").style.display ="none";
+  }
+  else{
+ const data= await  response.json();
+ 
+ document.querySelector(".flag").src=data[0].flags.png;
+ document.querySelector(".country").innerHTML=data[0].name.common;
+ document.querySelector(".capital").innerHTML=data[0].capital[0];
+ document.querySelector(".population").innerHTML=data[0].population ;
+ document.querySelector(".region").innerHTML=data[0].region;
+ 
+ document.querySelector(".population").innerHTML="population :" + data[0].population.toLocaleString();
+ 
+ 
+ 
+ 
+ document.querySelector(".error").style.display ="none";
+ document.querySelector(".result").style.display ="block";
+ 
+ 
+  }
+ 
+}
+
+
+
+searchBtn.addEventListener("click",()=>{
+  showCountry(searchBox.value) ;
+})
+  </script>
+</body>
+
+</html>
