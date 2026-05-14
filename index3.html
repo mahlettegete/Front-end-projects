@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing:  border-box;
+      font-family: sans-serif;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      background-image: url(FQA.avif);
+      background-size: cover;
+      background-position: center;
+        position: relative;
+    }
+    h3{
+       background-color: rgb(57, 76, 92);
+        padding: 10PX;
+        color: white;
+        border-radius: 10px; 
+    }
+    .container{
+        background-color: aliceblue;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 5px  5px 5px rgb(41, 32, 32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .question{
+        padding: 5px;
+        margin-bottom: 10px;
+        border-bottom: solid black 1px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 40px;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .answer{
+        padding: 5px;
+        line-height: 20px;
+        text-align: justify;
+        
+    }
+    span{
+        font-size: 25px;
+        cursor: pointer;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+
+
+          
+    }
+
+    .question::after{
+        content: "";
+        font-size: 30px;
+        transition: .5s;
+       
+
+    }
+
+    span:hover{
+        background-color: rgb(215, 220, 220);
+        color: rgb(20, 19, 19);
+        text-align: center;
+        border-radius: 50%;
+     }
+
+    .minus{
+        display: none;
+        
+    }
+</style>
+
+</head>
+<body>
+    <h3>Frequently Asked Questions</h3>
+  <div class="container">
+    
+    <div class="questions">
+<p class="question">Why we need technology ?<span class="plus">+</span> <span class="minus">-</span></p> 
+
+        <p class="answer" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+             sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <p class="question">What is AI Engineering? <span class="plus">+</span> <span class="minus">-</span></p>
+
+        <p class="answer" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+             sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                     <p class="question">What is Cybersecurity ? <span class="plus">+</span> <span class="minus">-</span></p>
+
+        <p class="answer" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+             sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p class="question">What is web development ?<span class="plus">+</span> <span class="minus">-</span></p>
+
+        <p class="answer" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+             sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+    </div>
+  </div> 
+  
+  <script>
+  const questions = document.querySelectorAll(".question");//since we can store them in nodeList for better use.
+
+  questions.forEach(question => {  //needed to access each question and when they clicked,
+    question.addEventListener("click", () => {
+      const answer = question.nextElementSibling; //the answer which is sibiling of the question will show up.
+    
+      const plus   = question.querySelector(".plus"); // select minus and plus signs from questions.
+      const minus  = question.querySelector(".minus");
+
+      if (answer.style.display === "none") {// if the display of the answer is none 
+        answer.style.display = "block"; // it will shown.
+        plus.style.display   = "none"; // the plus sign will disapear 
+        minus.style.display  = "inline";//the minus sign will appear inline 
+      } else {
+        answer.style.display = "none";// otherwise the opposite of that will happned to
+        plus.style.display   = "inline";
+        minus.style.display  = "none";
+      }
+    });
+  });
+</script>
+</body>
+</html>
