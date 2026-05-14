@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing:  border-box;
+      font-family: sans-serif;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+background-image: url(forest.jpg);
+background-size: cover;
+background-position: center;
+        position: relative;
+
+    }
+        
+button{
+    padding: 10px;
+    display: block;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+#alert{
+padding: 20px;
+background-color: white;
+border: none;
+border-radius: 4px;
+ display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  
+}
+  .alert{ 
+
+animation: appearance .7s ease-in-out;
+}
+
+@keyframes appearance {
+    from{      
+        transform: translateY(-500px); 
+   }
+    to{
+        transform: translateY(0);
+    }
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+}
+.close:hover{
+    cursor: pointer;
+    background-color: rgb(231, 225, 225);
+    width: 20px;
+    height: 25px;
+    padding: 5px;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="alert" id="alert" style="display: none;">
+        Here I am!   
+        <div class="close"><i class="fa-solid fa-x"></i></div>
+    </div>
+    <button>Where's Our Model?</button>
+  </div>  
+  <script>
+
+
+const btn=document.querySelector("button");
+const deleteBtn=document.querySelector(".close");
+const alertMessage=document.querySelector(".alert");
+
+btn.addEventListener("click",()=>{
+    alertMessage.style.display = "none";
+    alertMessage.classList.remove("alert");
+
+    void alertMessage.offsetWidth;
+
+    alertMessage.classList.add("alert");
+    alertMessage.style.display="block";
+    alertMessage.addEventListener("animationend",()=>{
+        setTimeout(()=> alertMessage.classList.remove("alert"),3000);
+        
+    },{once:true});
+
+});
+deleteBtn.addEventListener("click",()=>{
+    alertMessage.style.display="none";});
+  </script>
+</body>
+</html>
